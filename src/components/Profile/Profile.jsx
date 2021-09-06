@@ -1,30 +1,49 @@
+import defaultImage from '../../components/default.jpg';
 import PropTypes from 'prop-types';
-import { ProfileCard } from './Profile.styled';
+import {
+  ProfileCard,
+  CardContainer,
+  Description,
+  AvatarImage,
+  UserName,
+  UserTag,
+  UserLocation,
+  Stats,
+  StatsListElement,
+  Label,
+  Quantity,
+} from './Profile.styled';
 
-function Profile({ name, tag, location, avatar, stats }) {
+export function Profile({ name, tag, location, avatar = defaultImage, stats }) {
   return (
     <ProfileCard>
-      <div class="description">
-        <img src={avatar} alt="Аватар пользователя" class="avatar" />
-        <p class="name">{name}</p>
-        <p class="tag">{tag}</p>
-        <p class="location">{location}</p>
-      </div>
+      <CardContainer>
+        <Description>
+          <AvatarImage
+            src={avatar}
+            alt="Аватар пользователя"
+            className="avatar"
+          />
+          <UserName>{name}</UserName>
+          <UserTag>{tag}</UserTag>
+          <UserLocation>{location}</UserLocation>
+        </Description>
 
-      <ul class="stats">
-        <li>
-          <span class="label">Followers</span>
-          <span class="quantity">{stats.followers}</span>
-        </li>
-        <li>
-          <span class="label">Views</span>
-          <span class="quantity">{stats.views}</span>
-        </li>
-        <li>
-          <span class="label">Likes</span>
-          <span class="quantity">{stats.likes}</span>
-        </li>
-      </ul>
+        <Stats>
+          <StatsListElement>
+            <Label>Followers</Label>
+            <Quantity>{stats.followers}</Quantity>
+          </StatsListElement>
+          <StatsListElement>
+            <Label>Views</Label>
+            <Quantity>{stats.views}</Quantity>
+          </StatsListElement>
+          <StatsListElement>
+            <Label>Likes</Label>
+            <Quantity>{stats.likes}</Quantity>
+          </StatsListElement>
+        </Stats>
+      </CardContainer>
     </ProfileCard>
   );
 }
@@ -36,5 +55,3 @@ Profile.propTypes = {
   location: PropTypes.string.isRequired,
   stats: PropTypes.objectOf(PropTypes.number.isRequired),
 };
-
-export default Profile;
