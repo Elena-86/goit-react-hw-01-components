@@ -19,9 +19,11 @@ export const FriendListItemStatus = styled.span`
 `;
 
 export const FriendListItemAvatar = styled.img`
-display: block;
-max-width: 100%;
-height; auto;
+  display: block;
+  max-width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 20px;
 `;
 
 export const FriendListItemName = styled.p`

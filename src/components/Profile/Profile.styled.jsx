@@ -24,9 +24,10 @@ export const Description = styled.div`
 export const AvatarImage = styled.img`
   display: block;
   max-width: 100%;
-  height: auto;
   height: 200px;
   width: 150px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 `;
 
 export const UserName = styled.p`
