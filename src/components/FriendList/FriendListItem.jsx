@@ -6,28 +6,21 @@ import {
   FriendListItemName,
 } from './FriendListItem.styled';
 
-export function FriendListItem(prop) {
-  const friend = prop.friend;
+export function FriendListItem({ friend: { name, avatar, isOnline } }) {
   return (
     <FriendListItemContainer>
-      <FriendListItemStatus isOnline={friend.isOnline}>●</FriendListItemStatus>
+      <FriendListItemStatus isOnline={isOnline}>●</FriendListItemStatus>
 
-      <FriendListItemAvatar
-        className="avatar"
-        src={friend.avatar}
-        alt=""
-        width="48"
-      />
-      <FriendListItemName>{friend.name}</FriendListItemName>
+      <FriendListItemAvatar className="avatar" src={avatar} alt="" width="48" />
+      <FriendListItemName>{name}</FriendListItemName>
     </FriendListItemContainer>
   );
 }
 
 FriendListItem.propTypes = {
   friend: PropTypes.shape({
-    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    isOnline: PropTypes.bool.isRequired,
     avatar: PropTypes.string.isRequired,
+    isOnline: PropTypes.bool.isRequired,
   }),
 };

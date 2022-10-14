@@ -1,4 +1,3 @@
-import defaultImage from '../../components/default.jpg';
 import PropTypes from 'prop-types';
 import {
   ProfileCard,
@@ -14,7 +13,7 @@ import {
   Quantity,
 } from './Profile.styled';
 
-export function Profile({ name, tag, location, avatar = defaultImage, stats }) {
+export function Profile({ name, tag, location, avatar, stats }) {
   return (
     <ProfileCard>
       <CardContainer>

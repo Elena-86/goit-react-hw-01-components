@@ -11,7 +11,8 @@ import {
 export function Statistics({ title, stats }) {
   return (
     <StatisticsSection>
-      <StatisticsTitle>{title}</StatisticsTitle>
+      {title.length < 0 && <StatisticsTitle>{title}</StatisticsTitle>}
+
       <StatList>
         {stats.map(stat => (
           <StatListItem key={stat.id}>
@@ -25,7 +26,8 @@ export function Statistics({ title, stats }) {
 }
 
 Statistics.propTypes = {
-  items: PropTypes.arrayOf(
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
