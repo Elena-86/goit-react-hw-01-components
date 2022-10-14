@@ -11,7 +11,7 @@ import {
 export function Statistics({ title, stats }) {
   return (
     <StatisticsSection>
-      {title.length < 0 && <StatisticsTitle>{title}</StatisticsTitle>}
+      {title && <StatisticsTitle>{title}</StatisticsTitle>}
 
       <StatList>
         {stats.map(stat => (
